@@ -1,5 +1,5 @@
 /////////// Prompt 1 ///////////
-/////////// time complexity: 
+/////////// time complexity: O(n)
 function findMax(array){
   var max = -Infinity;
   for (var i = 0; i < array.length; i++){
@@ -12,21 +12,21 @@ function findMax(array){
 
 
 /////////// Prompt 2 ///////////
-/////////// time complexity: 
+/////////// time complexity: O(n)
 function contains(array, target){
   return array.indexOf(target) > -1;
 }
 
 
 /////////// Prompt 3 ///////////
-/////////// time complexity: 
+/////////// time complexity: O(n)
 function partialContains(array, target, start){
   return array.slice(start).indexOf(target) > -1;
 }
 
 
 /////////// Prompt 4 ///////////
-/////////// time complexity: 
+/////////// time complexity: O(1)
 function square(array){
   for (var i = 0; i < 3; i++){
     array[i] = array[i] * array[i];
@@ -35,7 +35,7 @@ function square(array){
 }
 
 /////////// Prompt 5 ///////////
-/////////// time complexity: 
+/////////// time complexity: O(n)
 function repeat(array){
   var repeat = [];
   for (var j = 0; j < 10; j++){
@@ -46,19 +46,19 @@ function repeat(array){
   }
   return repeat; 
 }
-//what if we replace 10 with a parameter? 
+//what if we replace 10 with a parameter? O(n^2)
 
 
 /////////// Prompt 6 ///////////
-/////////// time complexity: 
+/////////// time complexity: O(n)
 function gcf(num1, num2){
   if (num1 > num2){ //this ensures num1 is the smaller number
     var temp = num1;
     num1 = num2;
     num2 = temp;
   }
-  for (var i = num1; i > 1; i--){
-    if (num1 % i === 0 && num2 % i === 0){
+  for (var i = num1; i > 1; i--){ //O(n)
+    if (num1 % i === 0 && num2 % i === 0){ //O(1)
       return i;
     }
   }
@@ -71,7 +71,7 @@ function gcf(num1, num2){
 function countChar(string){
   var counts = {};
   var currChar, currCharCount;
-  for (var i = 0; i < string.length; i++){
+  for (var i = 0; i < string.length; i++){ //O(n)
     currChar = string[i];
     currCharCount = 1;
     for (var j = i+1; j < string.length; j++){
@@ -88,7 +88,7 @@ function countChar(string){
 
 
 /////////// Prompt 8 ///////////
-/////////// time complexity: 
+/////////// time complexity: O(n) 
 var factorial = function(num){
   if (num < 0){
     return;
@@ -121,7 +121,7 @@ function tournament(players){
 
 
 /////////// Prompt 10 ///////////
-/////////// time complexity: 
+/////////// time complexity: O(c^n)
 function allPasswords(allowedChars, maxLength){
   var results = [];
 
@@ -130,8 +130,8 @@ function allPasswords(allowedChars, maxLength){
       results.push(currentAttempt.join(""));
     }
     if (currentAttempt.length <= maxLength){
-      for (var i = 0; i < allowedChars.length; i++){
-        findPassword(currentAttempt.concat(allowedChars[i]));
+      for (var i = 0; i < allowedChars.length; i++){ O(C)
+        findPassword(currentAttempt.concat(allowedChars[i])); O(n)
       }
     }
   }
